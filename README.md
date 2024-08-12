@@ -5,7 +5,7 @@
 * Leandra Ramos | 1402897@sga.pucminas.br
 * Wanessa Dias  | 815234@sga.pucminas.br
 
-## Professores responsáveis
+## Professor responsável
 * Cristiano Neto
 
 ## Descrição 

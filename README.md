@@ -20,24 +20,9 @@ Após um aluno se inscrever para um semestre, o sistema de cobranças é notific
 Os professores podem acessar o sistema para saber quais são os alunos que estão matriculados em cada disciplina.
 Todos os usuários do sistema têm senhas que são utilizadas para validação do respectivo login.
 
-## Apresentação Final
-
-Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protótipo produzido, comparando-os com os modelos descritos inicialmente, bem como apresentando as modificações inseridas para o funcionamento adequado do software (conforme a especificação anterior). O sistema deverá ser desenvolvido em Java, atendendo aos requisitos apresentados e cumprindo a modelagem produzida nas sprints iniciais do projeto. O repositório GitHub deve estar atualizado, com todas as versões produzidas dos modelos UML e o código final desenvolvido. A avaliação final do projeto levará em consideração os seguintes aspectos:
-
-Qualidade do sistema produzido (adequação aos requisitos apresentados);
-Alinhamento entre modelo (de classes e de arquitetura) e código;
-Atualizações dos modelos conforme necessidade do projeto.
-
 ## Sprint 01
 Lab01S01: Modelo de Análise: Diagrama de Caso de Uso referente ao sistema + Descrição em Histórias de Usuário em Markdown (.md), no README do Repositório, com arquivo enviado no Canvas. (4 pontos) - 18/08
 
-## Sprint 02
-Lab01S02: Correção dos Diagramas desenvolvidos + Projeto Estrutural: Diagrama de Classes referente ao sistema + Criação do Projeto Java, contendo: classes, atributos e stub dos métodos modelados (4 pontos);
-
-## Sprint 03
-Lab01S03: Correção dos Diagramas desenvolvidos + Implementação do protótipo do sistema (principais funcionalidades usáveis, com interface e persistência) (7 pontos). Observação: a interface pode ser em linha de comando e a persistência em arquivos.
-
-**Prazo final:** 03/09 | Apresentação: 04/09  | Valor total: 15 pontos |
 
 
 

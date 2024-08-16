@@ -1,0 +1,18 @@
+actor "Aluno" as Aluno
+actor "Professor" as Professor
+actor "Secretaria" as Secretaria
+actor "Sistema de Cobranças" as Cobranças
+
+Aluno --> (Realizar Matrícula)
+Aluno --> (Cancelar Matrícula)
+Aluno --> (Login)
+
+Professor --> (Consultar Alunos Matriculados)
+Professor --> (Login)
+
+Secretaria --> (Gerar Currículo Semestral)
+Secretaria --> (Consultar Matrículas)
+Secretaria --> (Fechar Matrículas)
+Secretaria --> (Login)
+
+Cobranças --> (Notificação de Matrícula)

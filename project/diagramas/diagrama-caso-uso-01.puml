@@ -7,7 +7,7 @@ Aluno --> (Realizar Matrícula)
 Aluno --> (Cancelar Matrícula)
 Aluno --> (Login)
 
-Professor --> (Consultar Alunos Matriculados)
+Professor --> (Consultar Alunos Matriculados) 
 Professor --> (Login)
 
 Secretaria --> (Gerar Currículo Semestral)

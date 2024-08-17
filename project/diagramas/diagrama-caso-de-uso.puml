@@ -5,10 +5,20 @@ actor "Sistema de Cobranças" as Cobranças
 
 Aluno --> (Realizar Matrícula)
 Aluno --> (Cancelar Matrícula)
-Aluno --> (Login)
+Aluno --> (Efetuar Login)
+Aluno --> (Visualizar Disciplinas Disponíveis)
+Aluno --> (Consultar Histórico Escolar)
+Aluno --> (Alterar Dados Pessoais)
+Aluno --> (Solicitar Declaração)
+Aluno --> (Avaliar Disciplinas)
 
-Professor --> (Consultar Alunos Matriculados) 
-Professor --> (Login)
+Professor --> (Consultar Alunos Matriculados)
+Professor --> (Efetuar Login)
+Professor --> (Lançar Notas)
+Professor --> (Editar Notas)
+Professor --> (Consultar Horário de Aulas)
+Professor --> (Enviar Material de Apoio)
+Professor --> (Gerenciar Frequência)
 
 Secretaria --> (Gerar Currículo Semestral)
 Secretaria --> (Consultar Matrículas)

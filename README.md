@@ -44,6 +44,7 @@ Lab01S03: Correção dos Diagramas desenvolvidos + Implementação do protótipo
 ## Tecnologias Utilizadas
 
 - ![Java](https://img.shields.io/badge/-Java-007396?style=flat&logo=java&logoColor=white)
+- ![PlantUML](https://img.shields.io/badge/-PlantUML-1abc9c?style=flat&logo=plantuml&logoColor=white)
 
 
 ## IDE Utilizada

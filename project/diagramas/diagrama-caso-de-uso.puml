@@ -1,32 +1,22 @@
+@startuml
+
 actor "Aluno" as Aluno
 actor "Professor" as Professor
 actor "Secretaria" as Secretaria
 actor "Sistema de Cobranças" as Cobranças
 
+Aluno --> (Efetuar Login)
 Aluno --> (Realizar Matrícula)
 Aluno --> (Cancelar Matrícula)
-Aluno --> (Efetuar Login)
-Aluno --> (Visualizar Disciplinas Disponíveis)
-Aluno --> (Consultar Histórico Escolar)
-Aluno --> (Alterar Dados Pessoais)
-Aluno --> (Solicitar Declaração)
-Aluno --> (Avaliar Disciplinas)
 
-Professor --> (Consultar Alunos Matriculados)
 Professor --> (Efetuar Login)
-Professor --> (Lançar Notas)
-Professor --> (Editar Notas)
-Professor --> (Consultar Horário de Aulas)
-Professor --> (Enviar Material de Apoio)
-Professor --> (Gerenciar Frequência)
+Professor --> (Consultar Alunos Matriculados)
 
+Secretaria --> (Efetuar Login)
 Secretaria --> (Gerar Currículo Semestral)
-Secretaria --> (Consultar Matrículas)
 Secretaria --> (Fechar Matrículas)
-Secretaria --> (Adicionar Disciplinas ao Currículo)
-Secretaria --> (Remover Disciplinas do Currículo)
-Secretaria --> (Associar Professores às Disciplinas)
-Secretaria --> (Gerar Relatórios de Matrículas)
-Secretaria --> (Login)
+Secretaria --> (Atualizar Disciplinas no Currículo)
 
-Cobranças --> (Notificação de Matrícula)
+Cobranças --> (Receber Notificação de Matrícula)
+
+@enduml

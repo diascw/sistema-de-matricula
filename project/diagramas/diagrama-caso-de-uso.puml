@@ -5,14 +5,12 @@ actor "Professor" as Professor
 actor "Secretaria" as Secretaria
 actor "Sistema de Cobranças" as Cobranças
 
-Aluno --> (Efetuar Login)
 Aluno --> (Realizar Matrícula)
 Aluno --> (Cancelar Matrícula)
 
-Professor --> (Efetuar Login)
+
 Professor --> (Consultar Alunos Matriculados)
 
-Secretaria --> (Efetuar Login)
 Secretaria --> (Gerar Currículo Semestral)
 Secretaria --> (Fechar Matrículas)
 Secretaria --> (Atualizar Disciplinas no Currículo)

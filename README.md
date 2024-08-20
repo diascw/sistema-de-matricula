@@ -22,7 +22,6 @@ Todos os usuários do sistema têm senhas que são utilizadas para validação d
 
 ## Sprint 02
 Lab01S02: Correção dos Diagramas desenvolvidos + Projeto Estrutural: Diagrama de Classes referente ao sistema + Criação do Projeto Java, contendo: classes, atributos e stub dos métodos modelados (4 pontos); - 23/08
-=======
 
 ## Tecnologias Utilizadas
 

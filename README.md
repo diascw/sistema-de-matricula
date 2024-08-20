@@ -20,14 +20,15 @@ Após um aluno se inscrever para um semestre, o sistema de cobranças é notific
 Os professores podem acessar o sistema para saber quais são os alunos que estão matriculados em cada disciplina.
 Todos os usuários do sistema têm senhas que são utilizadas para validação do respectivo login.
 
+<<<<<<< HEAD
 ## Sprint 02
 Lab01S02: Correção dos Diagramas desenvolvidos + Projeto Estrutural: Diagrama de Classes referente ao sistema + Criação do Projeto Java, contendo: classes, atributos e stub dos métodos modelados (4 pontos); - 23/08
-
+=======
 
 ## Tecnologias Utilizadas
 
 - ![Java](https://img.shields.io/badge/-Java-007396?style=flat&logo=java&logoColor=white)
-
+- ![PlantUML](https://img.shields.io/badge/-PlantUML-1abc9c?style=flat&logo=plantuml&logoColor=white)
 
 ## IDE Utilizada
 

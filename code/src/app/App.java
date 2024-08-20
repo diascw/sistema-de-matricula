@@ -4,7 +4,6 @@ import models.Aluno;
 import models.Disciplina;
 import models.Matricula;
 import models.Professor;
-import models.SistemaCobranca;
 import services.MatriculaService;
 
 public class App {
@@ -14,11 +13,14 @@ public class App {
         
         Aluno aluno = new Aluno("Wanessa Dias", 815234);
         
-        SistemaCobranca sistemaCobranca = new SistemaCobranca();
         MatriculaService matriculaService = new MatriculaService();
+        Matricula matricula = matriculaService.matricularAluno(aluno, disciplina);
         
-        Matricula matricula = matriculaService.matricularAluno(aluno, disciplina, sistemaCobranca);
-        
-        System.out.println("Matrícula criada: " + matricula);
+        if (matricula != null) {
+            System.out.println("Matrícula criada: Aluno " + matricula.getAluno().getNome() +
+                               ", Disciplina: " + matricula.getDisciplina().getNome() +
+                               ", Professor: " + matricula.getDisciplina().getProfessor().getNome() +
+                               ", Data: " + matricula.getDataMatricula());
+        }
     }
 }

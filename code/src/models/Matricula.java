@@ -24,13 +24,4 @@ public class Matricula {
     public Date getDataMatricula() {
         return dataMatricula;
     }
-
-    @Override
-    public String toString() {
-        return "Matricula{" +
-                "aluno=" + aluno.getNome() +
-                ", disciplina=" + disciplina.getNome() +
-                ", dataMatricula=" + dataMatricula + 
-                '}';
-    }
 }

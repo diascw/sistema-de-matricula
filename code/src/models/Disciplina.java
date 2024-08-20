@@ -7,6 +7,7 @@ public class Disciplina {
     private String nome;
     private Professor professor;
     private List<Aluno> alunosMatriculados;
+    private int maxAlunos = 60;
 
     public Disciplina(String nome, Professor professor) {
         this.nome = nome;
@@ -26,16 +27,11 @@ public class Disciplina {
         return alunosMatriculados;
     }
 
-    public void matricularAluno(Aluno aluno) {
-        alunosMatriculados.add(aluno);
-    }
-
-    @Override
-    public String toString() {
-        return "Disciplina{" +
-                "nome='" + nome + '\'' +
-                ", professor=" + professor +
-                ", alunosMatriculados=" + alunosMatriculados +
-                '}';
+    public boolean matricularAluno(Aluno aluno) {
+        if (alunosMatriculados.size() < maxAlunos) {
+            alunosMatriculados.add(aluno);
+            return true;
+        }
+        return false; 
     }
 }

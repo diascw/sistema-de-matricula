@@ -3,16 +3,16 @@ package services;
 import models.Aluno;
 import models.Disciplina;
 import models.Matricula;
-import models.SistemaCobranca;
 
 public class MatriculaService {
-    public Matricula matricularAluno(Aluno aluno, Disciplina disciplina, SistemaCobranca sistemaCobranca) {
-        disciplina.matricularAluno(aluno);
-        sistemaCobranca.gerarCobranca(aluno, disciplina);
+    public Matricula matricularAluno(Aluno aluno, Disciplina disciplina) {
+        boolean sucesso = disciplina.matricularAluno(aluno);
 
-        Matricula matricula = new Matricula(aluno, disciplina);
-        System.out.println("Aluno matriculado com sucesso: " + matricula);
-        
-        return matricula;
+        if (sucesso) {
+            return new Matricula(aluno, disciplina);
+        } else {
+            System.out.println("Falha na matrícula: limite de alunos atingido.");
+            return null;
+        }
     }
 }

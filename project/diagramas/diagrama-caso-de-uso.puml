@@ -8,6 +8,7 @@ actor "Sistema de Cobranças" as Cobranças
 Aluno --> (Realizar Matrícula)
 Aluno --> (Cancelar Matrícula)
 
+(Realizar Matrícula) --> (Receber Notificação de Matrícula) : <<include>>
 
 Professor --> (Consultar Alunos Matriculados)
 

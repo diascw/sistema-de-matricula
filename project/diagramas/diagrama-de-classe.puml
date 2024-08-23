@@ -1,1 +1,44 @@
-.keep
+@startuml
+class Aluno {
+    +String nome
+    +String matricula
+    +realizarMatricula()
+    +cancelarMatricula()
+    +receberNotificacaoMatricula()
+}
+
+class Professor {
+    +String nome
+    +String idProfessor
+    +consultarAlunosMatriculados()
+}
+
+class Secretaria {
+    +gerarCurriculoSemestral()
+    +fecharMatriculas()
+    +atualizarDisciplinasNoCurriculo()
+}
+
+class SistemaDeCobrancas {
+    +receberNotificacaoMatricula()
+}
+
+class Matricula {
+    -Aluno aluno
+    -List<Disciplina> disciplinas
+    +realizarMatricula()
+    +cancelarMatricula()
+    +notificarSistemaDeCobrancas()
+}
+
+class Disciplina {
+    +String nomeDisciplina
+    +String codigoDisciplina
+}
+
+Aluno --> Matricula
+Professor --> Matricula
+Secretaria --> Matricula
+Matricula --> Disciplina
+SistemaDeCobrancas --> Matricula : notifica
+@enduml

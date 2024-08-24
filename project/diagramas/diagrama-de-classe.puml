@@ -1,44 +1,60 @@
 @startuml
 class Aluno {
-    +String nome
-    +String matricula
-    +realizarMatricula()
-    +cancelarMatricula()
-    +receberNotificacaoMatricula()
+  +matricular(disciplina: Disciplina)
+  +cancelarMatricula(disciplina: Disciplina)
+  -nome: String
+  -matriculas: List<Matricula>
+  -senha: String
 }
 
 class Professor {
-    +String nome
-    +String idProfessor
-    +consultarAlunosMatriculados()
+  +consultarAlunos(disciplina: Disciplina): List<Aluno>
+  -nome: String
+  -disciplinas: List<Disciplina>
+  -senha: String
 }
 
 class Secretaria {
-    +gerarCurriculoSemestral()
-    +fecharMatriculas()
-    +atualizarDisciplinasNoCurriculo()
-}
-
-class SistemaDeCobrancas {
-    +receberNotificacaoMatricula()
-}
-
-class Matricula {
-    -Aluno aluno
-    -List<Disciplina> disciplinas
-    +realizarMatricula()
-    +cancelarMatricula()
-    +notificarSistemaDeCobrancas()
+  +gerarCurriculo()
+  +fecharMatriculas()
+  +atualizarDisciplinas(disciplina: Disciplina)
+  -senha: String
 }
 
 class Disciplina {
-    +String nomeDisciplina
-    +String codigoDisciplina
+  +inscreverAluno(aluno: Aluno)
+  +cancelarInscricao(aluno: Aluno)
+  +verificarMinimoAlunos(): Boolean
+  +verificarMaximoAlunos(): Boolean
+  -nome: String
+  -creditos: int
+  -alunos: List<Aluno>
+  -professor: Professor
+  -numeroMinimoAlunos: int = 3
+  -numeroMaximoAlunos: int = 60
 }
 
-Aluno --> Matricula
-Professor --> Matricula
-Secretaria --> Matricula
-Matricula --> Disciplina
-SistemaDeCobrancas --> Matricula : notifica
+class Curso {
+  -nome: String
+  -creditosTotais: int
+  -disciplinas: List<Disciplina>
+}
+
+class Matricula {
+  +notificarSistemaCobrancas()
+  -aluno: Aluno
+  -disciplina: Disciplina
+  -dataMatricula: Date
+}
+
+class SistemaDeCobrancas {
+  +receberNotificacao(matricula: Matricula)
+}
+
+Aluno "1" -- "*" Matricula
+Professor "1" -- "*" Disciplina
+Secretaria "1" -- "*" Curso
+Curso "1" -- "*" Disciplina
+Disciplina "1" -- "*" Matricula
+SistemaDeCobrancas "1" -- "*" Matricula
 @enduml

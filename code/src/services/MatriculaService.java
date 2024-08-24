@@ -9,7 +9,15 @@ public class MatriculaService {
         boolean sucesso = disciplina.matricularAluno(aluno);
 
         if (sucesso) {
-            return new Matricula(aluno, disciplina);
+            Matricula matricula = new Matricula(aluno, disciplina);
+
+            if (disciplina.verificarMinAluno()) {
+                System.out.println("Mínimo de alunos atingido. A disciplina será ativada.");
+            } else {
+                System.out.println("Atenção: o mínimo de alunos ainda não foi atingido.");
+            }
+
+            return matricula;
         } else {
             System.out.println("Falha na matrícula: limite de alunos atingido.");
             return null;

@@ -140,4 +140,3 @@ Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protóti
 ## IDE Utilizada
 
 - ![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white)
-

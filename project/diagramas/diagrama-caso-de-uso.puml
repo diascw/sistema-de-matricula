@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+@startuml
+
+actor "Aluno" as Aluno
+actor "Professor" as Professor
+actor "Secretaria" as Secretaria
+actor "Sistema de Cobranças" as Cobranças
+
+Aluno --> (Realizar Matrícula)
+Aluno --> (Cancelar Matrícula)
+
+(Realizar Matrícula) --> (Receber Notificação de Matrícula) : <<include>>
+
+Professor --> (Consultar Alunos Matriculados)
+
+Secretaria --> (Gerar Currículo Semestral)
+Secretaria --> (Fechar Matrículas)
+Secretaria --> (Atualizar Disciplinas no Currículo)
+
+Cobranças --> (Receber Notificação de Matrícula)
+
+@enduml
+=======
 @startuml
 
 actor "Aluno" as Aluno

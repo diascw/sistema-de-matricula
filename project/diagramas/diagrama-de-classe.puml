@@ -11,10 +11,14 @@ class Disciplina {
     - String nome
     - Professor professor
     - List<Aluno> alunosMatriculados
+    - int MinAluno = 3
+    - int MaxAluno = 60
     + String getNome()
     + Professor getProfessor()
     + List<Aluno> getAlunosMatriculados()
     + void matricularAluno(Aluno aluno)
+    + boolean verificarMinAluno()
+    + boolean verificarMaxAluno()
 }
 
 class Professor {

@@ -17,7 +17,7 @@ public class App {
         Matricula matricula = matriculaService.matricularAluno(aluno, disciplina);
         
         if (matricula != null) {
-            System.out.println("Matrícula criada: Aluno " + matricula.getAluno().getNome() +
+            System.out.println("Matrícula criada: Aluno: " + matricula.getAluno().getNome() +
                                ", Disciplina: " + matricula.getDisciplina().getNome() +
                                ", Professor: " + matricula.getDisciplina().getProfessor().getNome() +
                                ", Data: " + matricula.getDataMatricula());

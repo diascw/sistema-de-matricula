@@ -1,60 +1,90 @@
 @startuml
+
 class Aluno {
-  +matricular(disciplina: Disciplina)
-  +cancelarMatricula(disciplina: Disciplina)
-  -nome: String
-  -matriculas: List<Matricula>
-  -senha: String
-}
-
-class Professor {
-  +consultarAlunos(disciplina: Disciplina): List<Aluno>
-  -nome: String
-  -disciplinas: List<Disciplina>
-  -senha: String
-}
-
-class Secretaria {
-  +gerarCurriculo()
-  +fecharMatriculas()
-  +atualizarDisciplinas(disciplina: Disciplina)
-  -senha: String
+    - String nome
+    - int matricula
+    + String getNome()
+    + int getMatricula()
 }
 
 class Disciplina {
-  +inscreverAluno(aluno: Aluno)
-  +cancelarInscricao(aluno: Aluno)
-  +verificarMinimoAlunos(): Boolean
-  +verificarMaximoAlunos(): Boolean
-  -nome: String
-  -creditos: int
-  -alunos: List<Aluno>
-  -professor: Professor
-  -numeroMinimoAlunos: int = 3
-  -numeroMaximoAlunos: int = 60
+    - String nome
+    - Professor professor
+    - List<Aluno> alunosMatriculados
+    - int MinAluno = 3
+    - int MaxAluno = 60
+    + String getNome()
+    + Professor getProfessor()
+    + List<Aluno> getAlunosMatriculados()
+    + void matricularAluno(Aluno aluno)
+    + boolean verificarMinAluno()
+    + boolean verificarMaxAluno()
 }
 
-class Curso {
-  -nome: String
-  -creditosTotais: int
-  -disciplinas: List<Disciplina>
+class Professor {
+    - String nome
+    - String departamento
+    + String getNome()
+    + String getDepartamento()
 }
 
 class Matricula {
-  +notificarSistemaCobrancas()
-  -aluno: Aluno
-  -disciplina: Disciplina
-  -dataMatricula: Date
+    - Aluno aluno
+    - Disciplina disciplina
+    - Date dataMatricula
+    + Aluno getAluno()
+    + Disciplina getDisciplina()
+    + Date getDataMatricula()
+    + String toString()
 }
 
-class SistemaDeCobrancas {
-  +receberNotificacao(matricula: Matricula)
+class SistemaCobranca {
+    + void gerarCobranca(Aluno aluno, Disciplina disciplina)
 }
 
-Aluno "1" -- "*" Matricula
-Professor "1" -- "*" Disciplina
-Secretaria "1" -- "*" Curso
-Curso "1" -- "*" Disciplina
-Disciplina "1" -- "*" Matricula
-SistemaDeCobrancas "1" -- "*" Matricula
+class Secretaria {
+    + void gerarCurriculoSemestral()
+    + void fecharMatriculas()
+    + void atualizarDisciplinasNoCurriculo()
+}
+
+class MatriculaService {
+    + Matricula matricularAluno(Aluno aluno, Disciplina disciplina)
+}
+
+class CancelamentoService {
+    + void cancelarMatricula(Aluno aluno, Disciplina disciplina)
+}
+
+class ConsultaService {
+    + void consultarAlunosMatriculados(Professor professor, Disciplina disciplina)
+}
+
+class FechamentoMatriculasService {
+    + void fecharMatriculas()
+}
+
+class GeracaoCurriculoService {
+    + void gerarCurriculo()
+}
+
+class NotificacaoService {
+    + void notificarSistemaCobranca(SistemaCobranca cobranca)
+}
+
+Aluno "1" --> "0..*" Matricula
+Disciplina "1" --> "0..*" Matricula
+Professor "1" --> "0..*" Disciplina
+Disciplina "1" --> "0..*" Aluno : "alunosMatriculados"
+Disciplina "1" --> "1" Professor
+MatriculaService --> Matricula
+MatriculaService --> SistemaCobranca
+MatriculaService --> Aluno
+MatriculaService --> Disciplina
+CancelamentoService --> Aluno
+CancelamentoService --> Disciplina
+ConsultaService --> Professor
+ConsultaService --> Disciplina
+NotificacaoService --> SistemaCobranca
+
 @enduml

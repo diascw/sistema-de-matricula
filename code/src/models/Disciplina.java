@@ -7,7 +7,8 @@ public class Disciplina {
     private String nome;
     private Professor professor;
     private List<Aluno> alunosMatriculados;
-    private int maxAlunos = 60;
+    private int MaxAluno = 60; 
+    private int MinAluno = 3;   
 
     public Disciplina(String nome, Professor professor) {
         this.nome = nome;
@@ -28,10 +29,18 @@ public class Disciplina {
     }
 
     public boolean matricularAluno(Aluno aluno) {
-        if (alunosMatriculados.size() < maxAlunos) {
+        if (alunosMatriculados.size() < MaxAluno) { 
             alunosMatriculados.add(aluno);
             return true;
         }
         return false; 
+    }
+
+    public boolean verificarMinAluno() {
+        return alunosMatriculados.size() >= MinAluno;
+    }
+
+    public boolean verificarMaxAluno() {
+        return alunosMatriculados.size() >= MaxAluno;
     }
 }

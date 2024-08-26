@@ -18,9 +18,9 @@ public class App {
         
         if (matricula != null) {
             System.out.println("Matrícula criada: Aluno: " + matricula.getAluno().getNome() +
-                               ", Disciplina: " + matricula.getDisciplina().getNome() +
-                               ", Professor: " + matricula.getDisciplina().getProfessor().getNome() +
-                               ", Data: " + matricula.getDataMatricula());
+                               " || Disciplina: " + matricula.getDisciplina().getNome() +
+                               " || Professor: " + matricula.getDisciplina().getProfessor().getNome() +
+                               " || Data: " + matricula.getDataMatricula());
         }
     }
 }

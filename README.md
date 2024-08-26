@@ -31,7 +31,7 @@ Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protóti
 **Funcionalidade**: Matrícula de aluno em disciplinas
 
 **Como** um aluno,  
-**Eu quero** me matricular em até 4 disciplinas obrigatórias e 2 optativas,  
+**Eu preciso** me matricular em até 4 disciplinas obrigatórias e 2 optativas,  
 **Para que** eu possa participar das disciplinas durante o semestre.
 
 **Cenário 1**: Matrícula em disciplinas disponíveis
@@ -54,7 +54,7 @@ Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protóti
 **Funcionalidade**: Cancelamento de matrículas
 
 **Como** um aluno,  
-**Eu quero** cancelar uma matrícula feita anteriormente,  
+**Eu preciso** cancelar uma matrícula feita anteriormente,  
 **Para que** eu possa ajustar minhas disciplinas antes do fechamento do período de matrícula.
 
 **Cenário 1**: Cancelamento bem-sucedido
@@ -72,7 +72,7 @@ Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protóti
 **Funcionalidade**: Consulta de alunos matriculados
 
 **Como** um professor,  
-**Eu quero** consultar a lista de alunos matriculados em minhas disciplinas,  
+**Eu preciso** consultar a lista de alunos matriculados em minhas disciplinas,  
 **Para que** eu saiba quem estará frequentando minhas aulas.
 
 **Cenário 1**: Consulta Bem-Sucedida
@@ -85,7 +85,7 @@ Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protóti
 **Funcionalidade**: Criação e atualização do currículo semestral
 
 **Como** um membro da secretaria,  
-**Eu quero** criar e atualizar o currículo semestral,  
+**Eu preciso** criar e atualizar o currículo semestral,  
 **Para que** os alunos possam se matricular nas disciplinas oferecidas.
 
 **Cenário 1**: Criação de novo currículo
@@ -103,7 +103,7 @@ Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protóti
 **Funcionalidade**: Notificação ao sistema de cobranças
 
 **Como** o sistema de cobranças,  
-**Eu quero** ser notificado quando um aluno se matricular,  
+**Eu preciso** ser notificado quando um aluno se matricular,  
 **Para que** eu possa gerar as cobranças correspondentes às disciplinas.
 
 **Cenário 1**: Notificação de matrícula bem-sucedida
@@ -116,7 +116,7 @@ Ao final da última sprint (Sprint 03), os alunos deverão apresentar o protóti
 **Funcionalidade**: Encerramento do período de matrículas
 
 **Como** um funcionário da secretaria,  
-**Eu quero** fechar as matrículas no final do período,  
+**Eu preciso** fechar as matrículas no final do período,  
 **Para que** eu possa desativar disciplinas que não atingiram o número mínimo de alunos.
 
 **Cenário 1**: Fechamento bem-sucedido

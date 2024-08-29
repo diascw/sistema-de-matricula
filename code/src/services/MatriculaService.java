@@ -6,8 +6,12 @@ import models.Turma;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MatriculaService {
+
     public Matricula matricularAluno(Aluno aluno, Turma turma) {
         boolean sucesso = turma.matricularAluno(aluno);
 
@@ -29,8 +33,16 @@ public class MatriculaService {
     }
 
     private void salvarMatriculaEmArquivo(Matricula matricula) {
-        try (FileWriter writer = new FileWriter("matriculas.txt", true)) {
-            writer.write("Aluno: " + matricula.getAluno().getNome() + ", Disciplina: " + matricula.getTurma().getDisciplina().getNome() + "\n");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String dataHora = dateFormat.format(new Date());
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter("matriculas.txt", true))) {
+            writer.println("Aluno: " + matricula.getAluno().getNome());
+            writer.println("Matrícula do Aluno: " + matricula.getAluno().getMatricula());
+            writer.println("Turma: " + matricula.getTurma().getDisciplina().getNome());
+            writer.println("Professor: " + matricula.getTurma().getProfessor().getNome());
+            writer.println("Data e Hora: " + dataHora);
+            writer.println("-----------------------------------");
         } catch (IOException e) {
             e.printStackTrace();
         }

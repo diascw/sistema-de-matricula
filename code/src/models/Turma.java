@@ -4,36 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
-    private int ano;
-    private int semestre;
     private Disciplina disciplina;
     private Professor professor;
     private List<Aluno> alunosMatriculados;
-    private final int minAlunos = 3;
-    private final int maxAlunos = 60;
+    private int ano;
+    private int semestre;
 
-    public Turma(int ano, int semestre, Disciplina disciplina, Professor professor) {
-        this.ano = ano;
-        this.semestre = semestre;
+    public Turma(Disciplina disciplina, Professor professor, int ano, int semestre) {
         this.disciplina = disciplina;
         this.professor = professor;
+        this.ano = ano;
+        this.semestre = semestre;
         this.alunosMatriculados = new ArrayList<>();
-    }
-
-    public boolean matricularAluno(Aluno aluno) {
-        if (alunosMatriculados.size() < maxAlunos) {
-            alunosMatriculados.add(aluno);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean verificarMinAlunos() {
-        return alunosMatriculados.size() >= minAlunos;
     }
 
     public Disciplina getDisciplina() {
         return disciplina;
+    }
+
+    public Professor getProfessor() {
+        return professor;
     }
 
     public int getAno() {
@@ -44,11 +34,23 @@ public class Turma {
         return semestre;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
-
     public List<Aluno> getAlunosMatriculados() {
         return alunosMatriculados;
+    }
+
+    public boolean verificarMinAlunos() {
+        return alunosMatriculados.size() >= 3; 
+    }
+
+    public boolean matricularAluno(Aluno aluno) {
+        if (!alunosMatriculados.contains(aluno)) {
+            alunosMatriculados.add(aluno);
+            return true;
+        }
+        return false; 
+    }
+
+    public void removerAluno(Aluno aluno) {
+        alunosMatriculados.remove(aluno);
     }
 }

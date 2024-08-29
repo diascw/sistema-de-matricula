@@ -11,56 +11,56 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("=== Sistema de Matrículas ===");
-
-        
-        System.out.print("Nome do professor: ");
-        String nomeProfessor = scanner.nextLine();
-        System.out.print("Departamento do professor: ");
-        String departamentoProfessor = scanner.nextLine();
-        Professor professor = new Professor(nomeProfessor, departamentoProfessor);
-
-       
-        System.out.print("Nome da disciplina: ");
-        String nomeDisciplina = scanner.nextLine();
-        System.out.print("Número de créditos: ");
-        int numeroCreditos = scanner.nextInt();
-        Disciplina disciplina = new Disciplina(nomeDisciplina, numeroCreditos);
-        scanner.nextLine(); 
-
-        System.out.print("Ano da turma: ");
-        int ano = scanner.nextInt();
-        System.out.print("Semestre da turma: ");
-        int semestre = scanner.nextInt();
-        Turma turma = new Turma(ano, semestre, disciplina, professor);
-
-        System.out.print("Nome do aluno: ");
-        scanner.nextLine(); 
-        String nomeAluno = scanner.nextLine();
-        System.out.print("Matrícula do aluno: ");
-        int matricula = scanner.nextInt();
-        Aluno aluno = new Aluno(nomeAluno, matricula);
-
+        List<Turma> turmas = new ArrayList<>();
+        Secretaria secretaria = new Secretaria();
         MatriculaService matriculaService = new MatriculaService();
-        Matricula matriculaObj = matriculaService.matricularAluno(aluno, turma);
+        SecretariaService secretariaService = new SecretariaService();
 
-        if (matriculaObj != null) {
-            System.out.println("Matrícula realizada com sucesso!");
-        } else {
-            System.out.println("Matrícula não realizada.");
+        while (true) {
+            System.out.println("1. Adicionar nova matrícula");
+            System.out.println("2. Fechar período de matrículas");
+            System.out.println("3. Sair");
+            System.out.print("Escolha uma opção: ");
+            int opcao = scanner.nextInt();
+
+            if (opcao == 1) {
+                scanner.nextLine();
+                System.out.print("Nome do Aluno: ");
+                String nomeAluno = scanner.nextLine();
+                System.out.print("Matrícula do Aluno: ");
+                int matriculaAluno = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Nome da Disciplina: ");
+                String nomeDisciplina = scanner.nextLine();
+                System.out.print("Créditos da Disciplina: ");
+                int creditos = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Nome do Professor: ");
+                String nomeProfessor = scanner.nextLine();
+                System.out.print("Departamento do Professor: ");
+                String departamento = scanner.nextLine();
+                System.out.print("Ano da Turma: ");
+                int ano = scanner.nextInt();
+                System.out.print("Semestre da Turma: ");
+                int semestre = scanner.nextInt();
+
+                Aluno aluno = new Aluno(nomeAluno, matriculaAluno);
+                Professor professor = new Professor(nomeProfessor, departamento);
+                Disciplina disciplina = new Disciplina(nomeDisciplina, creditos);
+                Turma turma = new Turma(disciplina, professor, ano, semestre);
+
+                turmas.add(turma);
+
+                matriculaService.matricularAluno(aluno, turma);
+            } else if (opcao == 2) {
+                secretariaService.gerarCurriculoSemestral(secretaria, turmas);
+            } else if (opcao == 3) {
+                break;
+            } else {
+                System.out.println("Opção inválida!");
+            }
         }
 
-        SistemaCobranca sistemaCobranca = new SistemaCobranca();
-        sistemaCobranca.gerarCobranca(aluno, turma);
-
-        Secretaria secretaria = new Secretaria();
-        List<Turma> turmas = new ArrayList<>();
-        turmas.add(turma);
-
-        SecretariaService secretariaService = new SecretariaService();
-        secretariaService.gerarCurriculoSemestral(secretaria, turmas);
-        
         scanner.close();
     }
 }

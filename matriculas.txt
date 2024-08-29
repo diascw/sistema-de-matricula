@@ -1,0 +1,12 @@
+Aluno: Wanessa Dias
+Matrícula do Aluno: 815432
+Turma: Lab Software
+Professor: Cristiano
+Data e Hora: 29/08/2024 18:46:28
+-----------------------------------
+Aluno: Wanessa Dias
+Matrícula do Aluno: 815432
+Turma: Lab Software
+Professor: Computa��o
+Data e Hora: 29/08/2024 18:48:34
+-----------------------------------

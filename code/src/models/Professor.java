@@ -16,12 +16,4 @@ public class Professor {
     public String getDepartamento() {
         return departamento;
     }
-
-    @Override
-    public String toString() {
-        return "Professor{" +
-                "nome='" + nome + '\'' +
-                ", departamento='" + departamento + '\'' +
-                '}';
-    }
 }

@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class Matricula {
     private Aluno aluno;
-    private Disciplina disciplina;
+    private Turma turma;
     private Date dataMatricula;
 
-    public Matricula(Aluno aluno, Disciplina disciplina) {
+    public Matricula(Aluno aluno, Turma turma) {
         this.aluno = aluno;
-        this.disciplina = disciplina;
-        this.dataMatricula = new Date(); 
+        this.turma = turma;
+        this.dataMatricula = new Date();
     }
 
     public Aluno getAluno() {
         return aluno;
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
+    public Turma getTurma() {
+        return turma;
     }
 
     public Date getDataMatricula() {

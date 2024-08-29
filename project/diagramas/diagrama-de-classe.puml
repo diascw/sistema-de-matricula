@@ -9,16 +9,7 @@ class Aluno {
 
 class Disciplina {
     - String nome
-    - Professor professor
-    - List<Aluno> alunosMatriculados
-    - int MinAluno = 3
-    - int MaxAluno = 60
     + String getNome()
-    + Professor getProfessor()
-    + List<Aluno> getAlunosMatriculados()
-    + boolean matricularAluno(Aluno aluno)
-    + boolean verificarMinAluno()
-    + boolean verificarMaxAluno()
 }
 
 class Professor {
@@ -28,25 +19,40 @@ class Professor {
     + String getDepartamento()
 }
 
+class Turma {
+    - Disciplina disciplina
+    - Professor professor
+    - List<Aluno> alunosMatriculados
+    - int MinAluno = 3
+    - int MaxAluno = 60
+    + Disciplina getDisciplina()
+    + Professor getProfessor()
+    + List<Aluno> getAlunosMatriculados()
+    + boolean matricularAluno(Aluno aluno)
+    + boolean verificarMinAluno()
+    + boolean verificarMaxAluno()
+}
+
 class Matricula {
     - Aluno aluno
-    - Disciplina disciplina
+    - Turma turma
     - Date dataMatricula
     + Aluno getAluno()
-    + Disciplina getDisciplina()
+    + Turma getTurma()
     + Date getDataMatricula()
     + String toString()
 }
 
 class SistemaCobranca {
-    + void gerarCobranca(Aluno aluno, Disciplina disciplina)
+    + void gerarCobranca(Aluno aluno, Turma turma)
 }
 
 Aluno "1" --> "0..*" Matricula
-Disciplina "1" --> "0..*" Matricula
-Professor "1" --> "0..*" Disciplina
-Disciplina "1" --> "0..*" Aluno : "alunosMatriculados"
-Disciplina "1" --> "1" Professor
+Turma "1" --> "0..*" Matricula
+Professor "1" --> "0..*" Turma
+Disciplina "1" --> "0..*" Turma
+Turma "1" --> "0..*" Aluno : "alunosMatriculados"
+Turma "1" --> "1" Professor
 SistemaCobranca --> Matricula
 
 @enduml

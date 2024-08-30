@@ -1,53 +1,30 @@
-# Sistema de Matrículas da Universidade
-## Equipe de Desenvolvimento
+# Laboratório de Desenvolvimento de Software
 
-- **Wanessa Dias**
-- **Leandra Ramos**
-- **Julia Resende**
+## Alunos integrantes da equipe
+* Júlia Resende | 1313121@sga.pucminas.br
+* Leandra Ramos | 1402897@sga.pucminas.br
+* Wanessa Dias  | 815234@sga.pucminas.br
 
-## Professor
+## Professor responsável
+* Cristiano Neto
 
-- **Cristiano Neto**
+## Descrição do problema
 
-## Curso
-
-- **Engenharia de Software - 4º período**
-
-## Descrição do Projeto
-
-Este projeto visa a informatização do sistema de matrículas de uma universidade, permitindo a gestão de cursos, disciplinas, professores, alunos e suas respectivas matrículas. O sistema oferece funcionalidades como matrícula em disciplinas, cancelamento de matrículas, consulta de alunos matriculados por professores e notificação ao sistema de cobranças.
-
-## Funcionalidades Principais
-
-- **Gestão de Disciplinas e Cursos:** A secretaria pode criar e manter informações sobre os cursos e disciplinas oferecidos, incluindo o número de créditos e o professor responsável.
-- **Matrícula de Alunos:** Os alunos podem se matricular em até 4 disciplinas obrigatórias e 2 disciplinas optativas por semestre.
-- **Cancelamento de Matrículas:** Durante o período de matrículas, os alunos podem cancelar disciplinas em que estejam matriculados.
-- **Validação de Disciplinas:** As disciplinas só são ativadas se tiverem, no mínimo, 3 alunos inscritos ao final do período de matrículas.
-- **Limite de Inscrições:** Cada disciplina pode ter no máximo 60 alunos. Ao atingir esse número, novas matrículas são encerradas.
-- **Notificação ao Sistema de Cobranças:** Após a matrícula, o sistema notifica o sistema de cobranças para que o aluno seja cobrado pelas disciplinas escolhidas.
-- **Consulta de Matrículas por Professores:** Os professores podem acessar o sistema para consultar quais alunos estão matriculados em suas disciplinas.
-
-
-## Estrutura do Projeto
-
-O projeto é dividido nas seguintes classes principais:
-
-- **Curso:** Representa um curso oferecido pela universidade, com informações como nome e número de créditos.
-- **Disciplina:** Contém informações sobre uma disciplina, incluindo o professor responsável e a lista de alunos matriculados.
-- **Aluno:** Representa um aluno, contendo seus dados pessoais e as disciplinas em que está matriculado.
-- **Professor:** Armazena informações sobre um professor, permitindo a consulta das disciplinas que ele leciona.
-- **Secretaria:** Responsável por gerar o currículo semestral e gerenciar as disciplinas e cursos.
+Uma universidade pretende informatizar seu sistema de matrículas. A secretaria da universidade gera o currículo para cada semestre e mantém as informações sobre as disciplinas, professores e alunos.
+Cada curso tem um nome, um determinado número de créditos e é constituído por diversas disciplinas.
+Os alunos podem se matricular em 4 disciplinas como 1ª opção (obrigatórias) e em mais 2 outras alternativas (optativas).
+Há períodos para efetuar matrículas, durante os quais um aluno pode acessar o sistema para se matricular em disciplinas e/ou para cancelar matrículas feitas anteriormente.
+Uma disciplina só fica ativa, isto é, só vai ocorrer no semestre seguinte se, no final do período de matrículas tiver, pelo menos, 3 alunos inscritos (matriculados). Caso contrário, a disciplina será cancelada. O número máximo de alunos inscritos a uma disciplina é de 60 e quando este número é atingido, as inscrições (matrículas) para essa disciplina são encerradas.
+Após um aluno se inscrever para um semestre, o sistema de cobranças é notificado pelo sistema de matrículas, de modo que o aluno possa ser cobrado pelas disciplinas daquele semestre.
+Os professores podem acessar o sistema para saber quais são os alunos que estão matriculados em cada disciplina.
+Todos os usuários do sistema têm senhas que são utilizadas para validação do respectivo login.
 
 ## Tecnologias Utilizadas
 
-- **Java:** Linguagem de programação utilizada para o desenvolvimento do sistema.
-- **Persistência em Arquivos:** Utilização de arquivos de texto para armazenamento dos dados.
-
-## Como Executar
-
-1. Clone o repositório do projeto.
-2. Compile e execute o sistema no ambiente de sua preferência.
-3. Utilize o terminal para interagir com o sistema, inserindo informações como nome, matrícula, e disciplinas desejadas.
+- ![Java](https://img.shields.io/badge/-Java-007396?style=flat&logo=java&logoColor=white)
+- ![PlantUML](https://img.shields.io/badge/-PlantUML-1abc9c?style=flat&logo=plantuml&logoColor=white)
 
 
+## IDE Utilizada
 
+- ![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white)

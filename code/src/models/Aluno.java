@@ -6,14 +6,14 @@ import java.util.List;
 public class Aluno {
     private String nome;
     private int matricula;
-    private List<Turma> disciplinasObrigatorias;
-    private List<Turma> disciplinasOptativas;
+    private List<Turma> obrigatorias;
+    private List<Turma> optativas;
 
     public Aluno(String nome, int matricula) {
         this.nome = nome;
         this.matricula = matricula;
-        this.disciplinasObrigatorias = new ArrayList<>();
-        this.disciplinasOptativas = new ArrayList<>();
+        this.obrigatorias = new ArrayList<>();
+        this.optativas = new ArrayList<>();
     }
 
     public String getNome() {
@@ -24,28 +24,30 @@ public class Aluno {
         return matricula;
     }
 
-    public boolean matricularDisciplinaObrigatoria(Turma turma) {
-        if (disciplinasObrigatorias.size() < 4 && turma.matricularAluno(this)) {
-            disciplinasObrigatorias.add(turma);
+    public List<Turma> getObrigatorias() {
+        return obrigatorias;
+    }
+
+    public List<Turma> getOptativas() {
+        return optativas;
+    }
+
+    public boolean adicionarObrigatoria(Turma turma) {
+        if (obrigatorias.size() < 4) {
+            obrigatorias.add(turma);
             return true;
         }
         return false;
     }
 
-    public boolean matricularDisciplinaOptativa(Turma turma) {
-        if (disciplinasOptativas.size() < 2 && turma.matricularAluno(this)) {
-            disciplinasOptativas.add(turma);
+    public boolean adicionarOptativa(Turma turma) {
+        if (optativas.size() < 2) {
+            optativas.add(turma);
             return true;
+        } else {
+            System.out.println("Limite de 2 disciplinas optativas atingido.");
+            return false;
         }
-        return false;
     }
-
-    public void cancelarMatricula(Turma turma) {
-        if (disciplinasObrigatorias.contains(turma)) {
-            disciplinasObrigatorias.remove(turma);
-        } else if (disciplinasOptativas.contains(turma)) {
-            disciplinasOptativas.remove(turma);
-        }
-        turma.removerAluno(this);
-    }
+    
 }

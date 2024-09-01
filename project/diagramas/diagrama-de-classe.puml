@@ -9,28 +9,9 @@ class Aluno {
 
 class Disciplina {
     - String nome
+    - int creditos
     + String getNome()
-}
-
-class Professor {
-    - String nome
-    - String departamento
-    + String getNome()
-    + String getDepartamento()
-}
-
-class Turma {
-    - Disciplina disciplina
-    - Professor professor
-    - List<Aluno> alunosMatriculados
-    - int MinAluno = 3
-    - int MaxAluno = 60
-    + Disciplina getDisciplina()
-    + Professor getProfessor()
-    + List<Aluno> getAlunosMatriculados()
-    + boolean matricularAluno(Aluno aluno)
-    + boolean verificarMinAluno()
-    + boolean verificarMaxAluno()
+    + int getCreditos()
 }
 
 class Matricula {
@@ -40,19 +21,47 @@ class Matricula {
     + Aluno getAluno()
     + Turma getTurma()
     + Date getDataMatricula()
-    + String toString()
+}
+
+class Professor {
+    - String nome
+    - String departamento
+    + String getNome()
+    + String getDepartamento()
+}
+
+class Secretaria {
+    + void gerarCurriculoSemestral(List<Turma> turmas)
+    + void fecharMatriculas(List<Turma> turmas)
 }
 
 class SistemaCobranca {
     + void gerarCobranca(Aluno aluno, Turma turma)
 }
 
-Aluno "1" --> "0..*" Matricula
-Turma "1" --> "0..*" Matricula
-Professor "1" --> "0..*" Turma
-Disciplina "1" --> "0..*" Turma
-Turma "1" --> "0..*" Aluno : "alunosMatriculados"
-Turma "1" --> "1" Professor
-SistemaCobranca --> Matricula
+class Turma {
+    - Disciplina disciplina
+    - Professor professor
+    - List<Aluno> alunosMatriculados
+    - int ano
+    - int semestre
+    + Disciplina getDisciplina()
+    + Professor getProfessor()
+    + int getAno()
+    + int getSemestre()
+    + List<Aluno> getAlunosMatriculados()
+    + boolean verificarMinAlunos()
+    + boolean matricularAluno(Aluno aluno)
+    + void removerAluno(Aluno aluno)
+}
+
+Aluno "1" -- "0..*" Matricula 
+Matricula "1" -- "1" Aluno 
+Matricula "1" -- "1" Turma
+Turma "1" -- "0..*" Aluno 
+Turma "1" -- "1" Disciplina 
+Turma "1" -- "1" Professor
+Secretaria "1" -- "0..*" Turma 
+SistemaCobranca "1" -- "0..*" Matricula 
 
 @enduml

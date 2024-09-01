@@ -1,6 +1,7 @@
-# Laboratório de Desenvolvimento de Software
+# Laboratório de Desenvolvimento de Software 
+* Engenharia de Software, PUC Minas - 4º Período 
 
-## Alunos integrantes da equipe
+## Equipe
 * Júlia Resende | 1313121@sga.pucminas.br
 * Leandra Ramos | 1402897@sga.pucminas.br
 * Wanessa Dias  | 815234@sga.pucminas.br

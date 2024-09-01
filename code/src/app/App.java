@@ -25,17 +25,17 @@ public class App {
                 int tipo = scanner.nextInt();
                 boolean isObrigatoria = tipo == 1;
 
-                scanner.nextLine();  // Consume newline
+                scanner.nextLine();  
                 System.out.print("Nome do Aluno: ");
                 String nomeAluno = scanner.nextLine();
                 System.out.print("Matrícula do Aluno: ");
                 int matriculaAluno = scanner.nextInt();
-                scanner.nextLine();  // Consume newline
+                scanner.nextLine();  
                 System.out.print("Nome da Disciplina: ");
                 String nomeDisciplina = scanner.nextLine();
                 System.out.print("Créditos da Disciplina: ");
                 int creditos = scanner.nextInt();
-                scanner.nextLine();  // Consume newline
+                scanner.nextLine();  
                 System.out.print("Nome do Professor: ");
                 String nomeProfessor = scanner.nextLine();
                 System.out.print("Departamento do Professor: ");
@@ -54,9 +54,8 @@ public class App {
 
                 matriculaService.matricularAluno(aluno, turma, isObrigatoria);
             } else if (opcao == 2) {
-                // código para fechar período de matrículas...
+               
             } else if (opcao == 3) {
-                // código para visualizar alunos matriculados...
             } else if (opcao == 4) {
                 break;
             } else {

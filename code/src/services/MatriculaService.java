@@ -13,36 +13,27 @@ import java.util.Date;
 public class MatriculaService {
 
     public Matricula matricularAluno(Aluno aluno, Turma turma, boolean isObrigatoria) {
-
-        for (Turma t : aluno.getObrigatorias()) {
-            if (t.getDisciplina().getNome().equals(turma.getDisciplina().getNome()) &&
-                t.getAno() == turma.getAno() &&
-                t.getSemestre() == turma.getSemestre()) {
-                System.out.println("Falha na matrícula: Aluno já está matriculado nesta disciplina para o ano e semestre especificados.");
-                return null;
-            }
-        }
-
-        for (Turma t : aluno.getOptativas()) {
-            if (t.getDisciplina().getNome().equals(turma.getDisciplina().getNome()) &&
-                t.getAno() == turma.getAno() &&
-                t.getSemestre() == turma.getSemestre()) {
-                System.out.println("Falha na matrícula: Aluno já está matriculado nesta disciplina para o ano e semestre especificados.");
-                return null;
-            }
-        }
-
-        boolean matriculado;
         if (isObrigatoria) {
-            matriculado = aluno.adicionarObrigatoria(turma);
-            if (!matriculado) {
-                System.out.println("O aluno já está matriculado em 4 disciplinas obrigatórias.");
-                return null;
+            for (Turma t : aluno.getObrigatorias()) {
+                if (t.getDisciplina().getNome().equals(turma.getDisciplina().getNome()) &&
+                    t.getAno() == turma.getAno() &&
+                    t.getSemestre() == turma.getSemestre()) {
+                    System.out.println("Falha na matrícula: Aluno já está matriculado nesta disciplina obrigatória para o ano e semestre especificados.");
+                    return null;
+                }
             }
         } else {
-            matriculado = aluno.adicionarOptativa(turma);
-            if (!matriculado) {
-                System.out.println("O aluno já está matriculado em 2 disciplinas optativas.");
+            for (Turma t : aluno.getOptativas()) {
+                if (t.getDisciplina().getNome().equals(turma.getDisciplina().getNome()) &&
+                    t.getAno() == turma.getAno() &&
+                    t.getSemestre() == turma.getSemestre()) {
+                    System.out.println("Falha na matrícula: Aluno já está matriculado nesta disciplina optativa para o ano e semestre especificados.");
+                    return null;
+                }
+            }
+
+            if (aluno.getOptativas().size() >= 2) {
+                System.out.println("Falha na matrícula: Aluno já está matriculado em 2 disciplinas optativas.");
                 return null;
             }
         }
@@ -51,6 +42,12 @@ public class MatriculaService {
 
         if (sucesso) {
             Matricula matricula = new Matricula(aluno, turma);
+
+            if (isObrigatoria) {
+                aluno.adicionarObrigatoria(turma);
+            } else {
+                aluno.adicionarOptativa(turma);
+            }
 
             if (turma.verificarMinAlunos()) {
                 System.out.println("Mínimo de alunos atingido. A turma será ativada.");

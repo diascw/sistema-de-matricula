@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MatriculaService {
-    private NotificacaoService notificacaoService = new NotificacaoService();
 
     public Matricula matricularAluno(Aluno aluno, Turma turma) {
         boolean sucesso = turma.matricularAluno(aluno);
@@ -26,10 +25,9 @@ public class MatriculaService {
             }
 
             salvarMatriculaEmArquivo(matricula);
-            notificacaoService.notificarCobranca(aluno, turma);
             return matricula;
         } else {
-            System.out.println("Falha na matrícula: limite de alunos atingido.");
+            System.out.println("Falha na matrícula: Aluno já está matriculado nesta disciplina para o ano e semestre especificados ou o limite de alunos foi atingido.");
             return null;
         }
     }

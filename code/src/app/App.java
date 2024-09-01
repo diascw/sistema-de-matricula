@@ -14,28 +14,28 @@ public class App {
         List<Turma> turmas = new ArrayList<>();
         MatriculaService matriculaService = new MatriculaService();
         SecretariaService secretariaService = new SecretariaService();
-        Secretaria secretaria = new Secretaria();  
+        Secretaria secretaria = new Secretaria();
 
         while (true) {
             System.out.println("1. Adicionar nova matrícula");
             System.out.println("2. Fechar período de matrículas");
-            System.out.println("3. Visualizar alunos matriculados");
+            System.out.println("3. Visualizar alunos matriculados (Professor)");
             System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
-            scanner.nextLine();  
+            scanner.nextLine();
 
             if (opcao == 1) {
                 System.out.print("Nome do Aluno: ");
                 String nomeAluno = scanner.nextLine();
                 System.out.print("Matrícula do Aluno: ");
                 int matriculaAluno = scanner.nextInt();
-                scanner.nextLine();  
+                scanner.nextLine();
                 System.out.print("Nome da Disciplina: ");
                 String nomeDisciplina = scanner.nextLine();
                 System.out.print("Créditos da Disciplina: ");
                 int creditos = scanner.nextInt();
-                scanner.nextLine();  
+                scanner.nextLine();
                 System.out.print("Nome do Professor: ");
                 String nomeProfessor = scanner.nextLine();
                 System.out.print("Departamento do Professor: ");
@@ -44,14 +44,13 @@ public class App {
                 int ano = scanner.nextInt();
                 System.out.print("Semestre da Turma: ");
                 int semestre = scanner.nextInt();
-                scanner.nextLine();  
+                scanner.nextLine();
 
                 Aluno aluno = new Aluno(nomeAluno, matriculaAluno);
 
                 Turma turmaExistente = null;
                 for (Turma turma : turmas) {
-                    if (turma.getDisciplina().getNome().equals(nomeDisciplina)
-                        && turma.getProfessor().getNome().equals(nomeProfessor)
+                    if (turma.getDisciplina().getNome().equalsIgnoreCase(nomeDisciplina)
                         && turma.getAno() == ano
                         && turma.getSemestre() == semestre) {
                         turmaExistente = turma;
@@ -66,9 +65,9 @@ public class App {
                     turmas.add(turmaExistente);
                 }
 
-                boolean sucesso = turmaExistente.matricularAluno(aluno);
-                if (sucesso) {
-                    matriculaService.matricularAluno(aluno, turmaExistente);
+                Matricula matricula = matriculaService.matricularAluno(aluno, turmaExistente);
+                if (matricula != null) {
+                    System.out.println("Matrícula realizada com sucesso!");
                 }
 
             } else if (opcao == 2) {
@@ -81,8 +80,8 @@ public class App {
                 
                 Turma turmaEncontrada = null;
                 for (Turma turma : turmas) {
-                    if (turma.getProfessor().getNome().equals(nomeProfessor) &&
-                        turma.getDisciplina().getNome().equals(nomeDisciplina)) {
+                    if (turma.getProfessor().getNome().equalsIgnoreCase(nomeProfessor) &&
+                        turma.getDisciplina().getNome().equalsIgnoreCase(nomeDisciplina)) {
                         turmaEncontrada = turma;
                         break;
                     }

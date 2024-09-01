@@ -9,6 +9,7 @@ public class Turma {
     private List<Aluno> alunosMatriculados;
     private int ano;
     private int semestre;
+    private static final int LIMITE_MAX_ALUNOS = 60; 
 
     public Turma(Disciplina disciplina, Professor professor, int ano, int semestre) {
         this.disciplina = disciplina;
@@ -45,16 +46,16 @@ public class Turma {
     public boolean matricularAluno(Aluno aluno) {
         for (Aluno a : alunosMatriculados) {
             if (a.getMatricula() == aluno.getMatricula()) {
-                System.out.println("O aluno " + aluno.getNome() + " já está matriculado nesta disciplina para o ano " + ano + " e semestre " + semestre);
-                return false;
+                return false;  
             }
         }
-        
-        if (!alunosMatriculados.contains(aluno)) {
-            alunosMatriculados.add(aluno);
-            return true;
+
+        if (alunosMatriculados.size() >= LIMITE_MAX_ALUNOS) {
+            return false;  
         }
-        return false; 
+        
+        alunosMatriculados.add(aluno);
+        return true;  
     }
 
     public void removerAluno(Aluno aluno) {

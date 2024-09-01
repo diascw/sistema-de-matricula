@@ -43,6 +43,13 @@ public class Turma {
     }
 
     public boolean matricularAluno(Aluno aluno) {
+        for (Aluno a : alunosMatriculados) {
+            if (a.getMatricula() == aluno.getMatricula()) {
+                System.out.println("O aluno " + aluno.getNome() + " já está matriculado nesta disciplina para o ano " + ano + " e semestre " + semestre);
+                return false;
+            }
+        }
+        
         if (!alunosMatriculados.contains(aluno)) {
             alunosMatriculados.add(aluno);
             return true;

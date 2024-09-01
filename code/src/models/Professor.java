@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 public class Professor {
     private String nome;
     private String departamento;
@@ -15,5 +17,13 @@ public class Professor {
 
     public String getDepartamento() {
         return departamento;
+    }
+
+    public void consultarAlunosMatriculados(Turma turma) {
+        System.out.println("Alunos matriculados na disciplina " + turma.getDisciplina().getNome() + ":");
+        List<Aluno> alunos = turma.getAlunosMatriculados();
+        for (Aluno aluno : alunos) {
+            System.out.println("Nome: " + aluno.getNome() + ", Matrícula: " + aluno.getMatricula());
+        }
     }
 }

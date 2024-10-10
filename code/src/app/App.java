@@ -110,7 +110,7 @@ public class App {
                 for (Aluno a : t.getAlunosMatriculados()) {
                     writer.println("- " + a.getNome() + " (Matrícula: " + a.getMatricula() + ")");
                 }
-                writer.println("-----------------------------------");
+                writer.println("-------------------------------------");
             }
             System.out.println("Relatório de matrículas gerado com sucesso.");
         } catch (IOException e) {

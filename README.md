@@ -4,7 +4,7 @@
 ## Equipe
 * Júlia Resende | 1313121@sga.pucminas.br
 * Leandra Ramos | 1402897@sga.pucminas.br
-* Wanessa Dias  | 815234@sga.pucminas.br
+* Wanessa Dias  | 1335040@sga.pucminas.br
 
 ## Professor responsável
 * Cristiano Neto
